@@ -24,9 +24,10 @@ class velo:
         print(f"vitesse courante: {self.vitesse_courante}")
         return self.vitesse_courante
 
-str1="azertyuiop"
-affiche(str1)
+if __name__=="__main__":
+    str1="azertyuiop"
+    affiche(str1)
 
-v1= velo("decatlon", 28,"noir", 5)
-v1.gear_up()
-v1.gear_down()
+    v1= velo("decatlon", 28,"noir", 5)
+    v1.gear_up()
+    v1.gear_down()
