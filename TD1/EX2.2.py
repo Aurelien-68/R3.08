@@ -22,25 +22,32 @@ class Tasse:
         else:
             print("La tasse est déjà vide.")
 
-# Création de plusieurs objets de la classe Tasse
-tasse1 = Tasse("bleue", 250, "Duralex", "coca")
-tasse2 = Tasse("rouge", 350, "IKEA", "eau")
+if __name__ =='__main__':
 
-# Affichage des objets avant d'ajouter du contenu
-print(tasse1)
-print(tasse2)
+    # Création de plusieurs objets de la classe Tasse
+    tasse1 = Tasse("bleue", 250, "Duralex", "coca")
+    tasse2 = Tasse("rouge", 350, "IKEA", "eau")
 
-# Définir le contenu des tasses
-tasse1.definir_contenu("café")
-tasse2.definir_contenu("thé")
+    # Affichage des espace de nommages
+    print(vars(tasse1))
+    print(vars(Tasse))
 
-# Affichage après avoir ajouté du contenu
-print(tasse1)
-print(tasse2)
 
-# Boire le contenu de la tasse
-tasse1.boire()
-print(tasse1)
+    # Affichage des objets avant d'ajouter du contenu
+    print(tasse1)
+    print(tasse2)
 
-# Essayer de boire à nouveau alors que la tasse est déjà vide
-tasse1.boire()
+    # Définir le contenu des tasses
+    tasse1.definir_contenu("café")
+    tasse2.definir_contenu("thé")
+
+    # Affichage après avoir ajouté du contenu
+    print(tasse1)
+    print(tasse2)
+
+    # Boire le contenu de la tasse
+    tasse1.boire()
+    print(tasse1)
+
+    # Essayer de boire à nouveau alors que la tasse est déjà vide
+    tasse1.boire()
