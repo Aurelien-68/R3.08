@@ -4,3 +4,6 @@ def affiche(text:str):
 
 
 affiche("azertyuiop")
+
+class velo:
+    def __init__(self,marque, taille_pneu,couleur,nb_vitesses ):
