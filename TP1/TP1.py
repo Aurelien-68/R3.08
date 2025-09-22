@@ -2,18 +2,24 @@ import math
 
 class Point:
     def __init__(self, x: float = 0, y: float = 0):
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
 
     def __str__(self):
-        return f"le point a les coodonées x: {self.x} et y: {self.y}"
+        return f"le point a les coodonées x: {self.__x} et y: {self.__y}"
+
+    def get_x(self) -> float:
+        return self.__x
+
+    def get_y(self) -> float:
+        return self.__y
 
     def distanceCoord(self,a:float, b:float) -> float:
-        dx = self.x - a
-        dy = self.y - b
+        dx = self.__x - a
+        dy = self.__y - b
         return (dx ** 2 + dy ** 2) ** 0.5
     def distancePoint(self,camarade: 'Point') -> float:
-        return self.distanceCoord(camarade.x, camarade.y)
+        return self.distanceCoord(camarade.__x, camarade.__y)
 
 
 class Cercle:
@@ -48,6 +54,7 @@ class Cercle:
             return False
 
 
+
 if __name__ == "__main__":
     p1=Point() #Point sur l'origine
     p2=Point(3,4)
@@ -58,12 +65,12 @@ if __name__ == "__main__":
     print("Distance avec origine:", p1.distanceCoord(3, 4))  # Résultat : 5.0
     print("Distance avec un Point:", p1.distancePoint(p2))    # Résultat : 5.0
 
-    c1 = Cercle(rayon=5)  # Cercle centré à l'origine
-    c2 = Cercle(rayon=2, p2)  # Cercle centré sur p2
+    c1 = Cercle(5)  # Cercle centré à l'origine
+    c2 = Cercle(2, p2)  # Cercle centré sur p2
 
     print("Diamètre de c1 :", c1.diametre())
     print("Périmètre de c1 :", c1.perimetre())
     print("Surface de c1 :", c1.surface())
 
     print("Les cercles se coupent-ils ?", c1.estEnIntersection(c2))
-    print("Le point (3,4) est-il dans c1 ?", c1.contient(p2))
+    print("Le point c2 est-il dans c1 ?", c1.contient(p2))
