@@ -305,7 +305,6 @@ class TriangleRectangle:
                 f"côtés {self.__cote1} et {self.__cote2}, "
                 f"hypoténuse ≈ {self.hypothenuse():.2f}")
 
-
 if __name__ == "__main__":
     print("\n--- TEST POINT ---")
 
