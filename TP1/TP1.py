@@ -16,13 +16,26 @@ class Point:
 
     def distanceCoord(self, a: float, b: float) -> float:
         """
-        Fonction
+        Fonction de distance part rapport à un autre point
+        :param a: x du point avec qui il faut calculer la distance
+        :type a:float
+        :param b: y du point avec qui il faut calculer la distance
+        :type b: float
+        :return: distance separant ce point avec le point donner avec a et b
+        :rtype: float
         """
         dx = self.__x - a
         dy = self.__y - b
         return (dx ** 2 + dy ** 2) ** 0.5
 
     def distancePoint(self, camarade: 'Point') -> float:
+        """
+        Fonction de distance part rapport à un autre point
+        :param camarade: Point avec qui il faut calculer la distance
+        :type camarade: Point
+        :return: distance separant ce point avec le point donner avec a et b
+        :rtype: float
+        """
         return self.distanceCoord(camarade.get_x(), camarade.get_y())
 
 
@@ -41,19 +54,48 @@ class Cercle:
         return self.__centre
 
     def diametre(self) -> float:
+        """
+        Fonction qui calcul le diametre du cercle
+        :return: diametre du cercle
+        :rtype: float
+        """
         return 2 * self.__rayon
 
     def perimetre(self) -> float:
+        """
+        Fonction qui calcul le perimetre du cercle
+        :return: perimetre du cercle
+        :rtype:float
+        """
         return 2 * math.pi * self.__rayon
 
     def surface(self) -> float:
+        """
+        Fonction qui renvoie la surface du cercle selectionner
+        :return: surface du cercle
+        :rtype: float
+        """
         return math.pi * self.__rayon ** 2
 
     def estEnIntersection(self, autrecercle: 'Cercle') -> bool:
+        """
+        Fonction qui calcul si le cercle est en intersection avec un autre cercle
+        :param autrecercle: un autre cercle qui a deja été defini avant
+        :type autrecercle: Cercle
+        :return: Vrai ou Faux si les deux cercle sont en intersection ou pas
+        :rtype: bool
+        """
         distance = self.__centre.distancePoint(autrecercle.get_centre())
         return distance <= self.__rayon + autrecercle.get_rayon()
 
     def contient(self, point: 'Point') -> bool:
+        """
+        Fonction qui cacul si un point est compris dans le cercle
+        :param point: un Point qui a deja été defini avant
+        :type point: Point
+        :return: Vrai ou Faux si le point est compris dans le cercle ou non
+        :rtype: bool
+        """
         distance = self.__centre.distancePoint(point)
         return distance <= self.__rayon
 
@@ -91,24 +133,62 @@ class Rectangle:
         return self.__bas_gauche
 
     def surface(self):
+        """
+        Fonction qui renvoie la surface du Rectangle
+        :return: surface du Rectangle
+        :rtype: float
+        """
+
         return self.__longueur * self.__hauteur
 
     def perimetre(self):
+        """
+        Fonction qui renvoie le perimetre du Rectangle
+        :return: preimetre du Rectangle
+        :rtype: float
+        """
         return 2 * (self.__longueur + self.__hauteur)
 
     def coin_bas_gauche(self):
+        """
+        Fonction qui renvoie le coin bas gauche du Rectangle
+        :return: le coin bas gauche du Rectangle
+        :rtype: Point
+        """
         return self.__bas_gauche
 
     def coin_bas_droit(self):
+        """
+        Fonction qui renvoie le coin bas droit du Rectangle
+        :return: le coin bas droit du Rectangle
+        :rtype: Point
+        """
         return Point(self.__bas_gauche.get_x() + self.__longueur, self.__bas_gauche.get_y())
 
     def coin_haut_gauche(self):
+        """
+        Fonction qui renvoie le coin haut gauche du Rectangle
+        :return: le coin haut gauche du Rectangle
+        :rtype: Point
+        """
         return Point(self.__bas_gauche.get_x(), self.__bas_gauche.get_y() + self.__hauteur)
 
     def coin_haut_droit(self):
+        """
+        Fonction qui renvoie le coin haut droit du Rectangle
+        :return: le coin haut droit du Rectangle
+        :rtype: Point
+        """
         return Point(self.__bas_gauche.get_x() + self.__longueur, self.__bas_gauche.get_y() + self.__hauteur)
 
-    def contient(self, point):
+    def contient(self, point:Point):
+        """
+        Fonction qui renvoie si le Rectangle contient un point donner en argument
+        :param point: un point qui a ete defini avant
+        :type point: Point
+        :return: Vrai ou Faux en fonction si le Rectangle contient un point donner en argument ou non
+        :rtype: bool
+        """
         x = point.get_x()
         y = point.get_y()
         return (self.__bas_gauche.get_x() <= x <= self.__bas_gauche.get_x() + self.__longueur and
