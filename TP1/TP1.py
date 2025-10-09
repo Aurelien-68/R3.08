@@ -237,7 +237,6 @@ class TriangleRectangle:
                 f"cathetes {self.__cote1} et {self.__cote2}, "
                 f"hypoténuse ≈ {self.hypothenuse():.2f}")
 
-import math
 
 class TriangleRectangle:
     def __init__(self, *args):
@@ -266,18 +265,38 @@ class TriangleRectangle:
 
     # === Calcul de l'hypoténuse ===
     def hypothenuse(self):
+        """
+        Fonction qui renvoi l'hypothenuse du triangle rectangle
+        :return: l'hypothenuse
+        :rtype: float
+        """
         return math.sqrt(self.__cote1 ** 2 + self.__cote2 ** 2)
 
     # === Périmètre du triangle ===
     def perimetre(self):
+        """
+        Fonction qui renvoi le perimetre du triangle rectangle
+        :return: le perimetre
+        :rtype: float
+        """
         return self.__cote1 + self.__cote2 + self.hypothenuse()
 
     # === Aire (surface) du triangle ===
     def surface(self):
+        """
+        Fonction qui renvoi la surface du triangle rectangle
+        :return: la surface
+        :rtype: float
+        """
         return (self.__cote1 * self.__cote2) / 2
 
     # === Le triangle est-il isocèle ? ===
     def est_isocèle(self):
+        """
+        Fonction qui renvoi si le triangle est isocele
+        :return: renvoi si OUI ou NON le triangle est isocele
+        :rtype: bool
+        """
         return self.__cote1 == self.__cote2
 
     # === Affichage du triangle ===
