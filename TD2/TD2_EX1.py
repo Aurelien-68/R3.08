@@ -1,12 +1,12 @@
-def division_par_2(a: float, b: float) -> float:
+def division(a: float, b: float) -> float:
+    if b==0:
+        raise ZeroDivisionError("on ne divise pas part 0")
+    return a/b
+
+if __name__=="__main__":
     try:
-        return a/b
-    except TypeError:
-        print("a ou b ne sont pas des nombre réel")
-    except ZeroDivisionError:
-        print("ATTENTION b est egal a zero, la division est imposilble")
-
-
-print(division_par_2(10, 2))   # 5.0
-print(division_par_2(10, 0))   # message d'erreur + None
-print(division_par_2(10, "a")) # message d'erreur + None
+        res=division(2,0)
+    except ZeroDivisionError as e:
+        print(f"{e}")
+    else:
+        print(f"resultat {res}")

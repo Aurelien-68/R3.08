@@ -24,6 +24,7 @@ class Point:
         :return: distance separant ce point avec le point donner avec a et b
         :rtype: float
         """
+
         dx = self.__x - a
         dy = self.__y - b
         return (dx ** 2 + dy ** 2) ** 0.5
