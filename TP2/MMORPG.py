@@ -136,7 +136,7 @@ class Joueur:
         for perso in self.__personnages:
             if perso.get_pseudo() == pseudo:
                 return perso
-            return None
+        return None
 
 
 
