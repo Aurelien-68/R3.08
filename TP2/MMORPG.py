@@ -103,7 +103,42 @@ class Mage(Personnage):
         return self.__mana
 
     def set_mana(self, mana: int):
-        self.__mana = max(mana, 0)
+        self.__mana = mana
+
+class Joueur:
+    def __init__(self, nom: str, max_perso:int):
+        self.__nom=nom
+        self.__max_perso=max_perso
+        self.__personnages: list(Personnage)=[]
+
+    #getteur
+    def get_nom(self):
+        return self.__nom
+    def get_max_perso(self):
+        return self.__max_perso
+    def get_personnages(self):
+        return self.__personnages
+
+    #setteur
+    def set_nom(self, nom:str):
+        self.__nom= nom
+    def set_max_perso(self, max_perso:int):
+        self.__max_perso=max_perso
+
+    def ajout_perso(self, perso:Personnage):
+        self.__personnages.append(perso)
+
+
+    def get_par_num(self, num:int):
+        return self.__personnages[num]
+
+    def get_par_pseudo(self,pseudo:str):
+        for perso in self.__personnages:
+            if perso.get_pseudo() == pseudo:
+                return perso
+            return None
+
+
 
 
 if __name__ == "__main__":
